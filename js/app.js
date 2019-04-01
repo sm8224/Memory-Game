@@ -85,9 +85,12 @@ function newGame() {
 let allCards = document.querySelectorAll('.card');
 allCards.forEach(function(card) {	
 	card.classList.remove('open', 'show', 'match', 'shake', 'rubberBand' );//resets the board to no cards flipped
-	card.addEventListener('click', function(e) {		
-		clicks += 1; //Keeps tally of the number of moves taken
-		let tally = document.querySelector('.moves').textContent = clicks;
+	card.addEventListener('click', function(e) {
+
+		
+				
+		
+		
 
 		//this starts the timer on the first click
 		if (clicks == 1){
@@ -101,14 +104,15 @@ allCards.forEach(function(card) {
 				rating.firstChild.remove();
 			case 20:
 			  	rating.nextSibling.remove();
-			case 24:
-				rating.remove();
+
 		}
 		// This next if statement makes sure none of the open, show or match classes are active on the selected card already
 		// if any of them are, you will not be able to click them
 		if (!card.classList.contains('open') && !card.classList.contains('show') && !card.classList.contains('match')) {
 			openCards.push(card);
 			card.classList.add('open', 'show');
+			clicks += 1; //Keeps tally of the number of moves taken
+			let tally = document.querySelector('.moves').textContent = clicks;
 			if (openCards.length == 2) {
 				// openCards.forEach(function(){
 				 	if (openCards[0].outerHTML == openCards[1].outerHTML) {
